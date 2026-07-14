@@ -1,0 +1,104 @@
+/* Estilo geral */
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(to right, #0077be, #20c997); /* azul do mar + verde água */
+    margin: 0;
+    padding: 0;
+    color: #fff;
+}
+
+/* Container central */
+.container {
+    width: 600px;
+    margin: 50px auto;
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.3);
+}
+
+/* Título */
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Labels e inputs */
+label {
+    display: block;
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+input {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    border: none;
+    border-radius: 5px;
+}
+
+/* Botão salvar */
+button {
+    width: 100%;
+    padding: 10px;
+    margin-top: 20px;
+    background-color: #20c997; /* verde água */
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+button:disabled {
+    background-color: #555;
+    cursor: not-allowed;
+}
+
+/* Mensagem de confirmação */
+.mensagem {
+    text-align: center;
+    font-weight: bold;
+    color: #00ffcc;
+    margin-bottom: 10px;
+}
+/* Estilo da tabela */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+th, td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+    color: #fff;
+}
+
+th {
+    background-color: #0077be; /* azul do mar */
+    font-weight: bold;
+}
+
+tr:hover {
+    background-color: rgba(32, 201, 151, 0.3); /* verde água translúcido */
+}
+
+/* Link voltar */
+.voltar {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.voltar a {
+    color: #20c997;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.voltar a:hover {
+    text-decoration: underline;
+}

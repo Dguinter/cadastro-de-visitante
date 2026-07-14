@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-BR" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Brindes</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+    <div class="container">
+        <h1>Lista de Brindes</h1>
+
+        <!-- Tabela de brindes -->
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nome</th>
+                    <th>Descrição</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Thymeleaf percorre a lista de brindes -->
+                <tr th:each="brinde : ${brindes}">
+                    <td th:text="${brinde.id}"></td>
+                    <td th:text="${brinde.nome}"></td>
+                    <td th:text="${brinde.descricao}"></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <!-- Link para voltar ao menu -->
+        <div class="voltar">
+            <a th:href="@{/}">Voltar ao menu</a>
+        </div>
+    </div>
+</body>
+</html>

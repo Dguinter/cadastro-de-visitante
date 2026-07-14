@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-BR" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro de Visitantes</title>
+    <!-- Importa o CSS externo -->
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+    <div class="container">
+        <h1>Cadastro de Visitantes</h1>
+
+        <!-- Mensagem de confirmação -->
+        <p th:text="${mensagem}" class="mensagem"></p>
+
+        <!-- Formulário de cadastro -->
+        <form th:action="@{/visitantes}" th:object="${visitante}" method="post" id="formVisitante">
+            <label for="nome">Nome:</label>
+            <input type="text" id="nome" th:field="*{nome}" required>
+
+            <label for="telefone">Telefone:</label>
+            <input type="text" id="telefone" th:field="*{telefone}" required>
+
+            <label for="email">E-mail:</label>
+            <input type="email" id="email" th:field="*{email}" required>
+
+            <label for="empresa">Empresa:</label>
+            <input type="text" id="empresa" th:field="*{empresa}" required>
+
+            <!-- Botão desabilitado até todos os campos serem preenchidos -->
+            <button type="submit" id="btnSalvar" disabled>Salvar</button>
+        </form>
+    </div>
+
+    <!-- Script para habilitar o botão apenas quando todos os campos estiverem preenchidos -->
+    <script>
+        const form = document.getElementById('formVisitante');
+        const btnSalvar = document.getElementById('btnSalvar');
+        const inputs = form.querySelectorAll('input');
+
+        inputs.forEach(input => {
+            input.addEventListener('input', () => {
+                const allFilled = Array.from(inputs).every(i => i.value.trim() !== '');
+                btnSalvar.disabled = !allFilled;
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-BR" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Visitantes</title>
+    <!-- Importa o CSS externo -->
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+    <div class="container">
+        <h1>Lista de Visitantes</h1>
+
+        <!-- Tabela de visitantes -->
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nome</th>
+                    <th>Telefone</th>
+                    <th>E-mail</th>
+                    <th>Empresa</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Thymeleaf percorre a lista de visitantes -->
+                <tr th:each="visitante : ${visitantes}">
+                    <td th:text="${visitante.id}"></td>
+                    <td th:text="${visitante.nome}"></td>
+                    <td th:text="${visitante.telefone}"></td>
+                    <td th:text="${visitante.email}"></td>
+                    <td th:text="${visitante.empresa}"></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <!-- Link para voltar ao formulário -->
+        <div class="voltar">
+            <a th:href="@{/visitantes}">Cadastrar novo visitante</a>
+        </div>
+    </div>
+</body>
+</html>
