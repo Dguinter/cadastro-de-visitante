@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-BR" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro de Brinde</title>
+    <!-- Importa o CSS específico para brindes -->
+    <link rel="stylesheet" th:href="@{/css/style-brindes.css}">
+    <script>
+        // Função para habilitar o botão somente quando todos os campos estiverem preenchidos
+        function validarCamposBrinde() {
+            const nome = document.getElementById("nome").value.trim();
+            const descricao = document.getElementById("descricao").value.trim();
+            const botao = document.getElementById("btnCadastrarBrinde");
+
+            if (nome && descricao) {
+                botao.disabled = false;
+            } else {
+                botao.disabled = true;
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h1>Cadastro de Brinde</h1>
+
+        <!-- Formulário de cadastro de brinde -->
+        <form th:action="@{/brindes}" th:object="${brinde}" method="post">
+            <label for="nome">Nome:</label>
+            <input type="text" id="nome" th:field="*{nome}" required onkeyup="validarCamposBrinde()">
+
+            <label for="descricao">Descrição:</label>
+            <input type="text" id="descricao" th:field="*{descricao}" required onkeyup="validarCamposBrinde()">
+
+            <!-- Botão de cadastro (inicialmente desabilitado) -->
+            <button type="submit" id="btnCadastrarBrinde" disabled>Cadastrar</button>
+        </form>
+
+        <!-- Mensagem de confirmação -->
+        <p th:text="${mensagem}"></p>
+
+        <!-- Botão para voltar ao menu principal -->
+        <div class="voltar">
+            <a th:href="@{/}" class="btn">Voltar ao Menu Principal</a>
+        </div>
+    </div>
+</body>
+</html>

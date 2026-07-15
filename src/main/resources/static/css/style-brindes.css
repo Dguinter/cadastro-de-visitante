@@ -1,0 +1,75 @@
+/* Estilo geral da tela de brindes */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    width: 50%;
+    margin: 50px auto;
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 10px rgba(0,0,0,0.1);
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+/* Labels e inputs */
+label {
+    display: block;
+    margin-top: 15px;
+    font-weight: bold;
+    color: #555;
+}
+
+input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+/* Botão de cadastro */
+button {
+    margin-top: 20px;
+    width: 100%;
+    padding: 12px;
+    background-color: #28a745; /* verde */
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: not-allowed; /* mostra que está desabilitado inicialmente */
+}
+
+button:enabled {
+    cursor: pointer;
+    background-color: #218838;
+}
+
+/* Botão voltar */
+.voltar {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.voltar .btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #007bff; /* azul */
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.voltar .btn:hover {
+    background-color: #0056b3;
+}
