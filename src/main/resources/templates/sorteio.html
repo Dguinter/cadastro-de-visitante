@@ -3,24 +3,55 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sorteio de Brindes</title>
-    <link rel="stylesheet" th:href="@{/css/style.css}">
+    <title>Resultado do Sorteio</title>
     <link rel="stylesheet" th:href="@{/css/style-sorteio.css}">
 </head>
 <body>
     <div class="container">
-        <h1>Sorteio de Brindes</h1>
-        <p th:text="${resultado}"></p>
+        <h1>Sorteio em andamento...</h1>
 
-        <div class="voltar">
-            <a th:href="@{/visitantes}">Cadastrar novo visitante</a> |
-            <a th:href="@{/visitantes/lista}">Ver lista de visitantes</a>
+        <!-- Área da roleta -->
+        <div id="roleta" class="roleta">
+            <p id="textoRoleta">Girando...</p>
         </div>
-                
-                <!-- Botão para voltar ao menu principal -->
-        <div class="voltar">
-            <a th:href="@{/}" class="btn">Voltar ao Menu Principal</a>
+
+        <!-- Resultado final -->
+        <div id="resultado" class="resultado" style="display:none;">
+            <h2>Visitante Sorteado</h2>
+            <p><strong>Nome:</strong> <span th:text="${visitante.nome}"></span></p>
+            <p><strong>Telefone:</strong> <span th:text="${visitante.telefone}"></span></p>
+            <p><strong>Email:</strong> <span th:text="${visitante.email}"></span></p>
+            <p><strong>Empresa:</strong> <span th:text="${visitante.empresa}"></span></p>
+
+            <h2>Brinde Sorteado</h2>
+            <p><strong>Nome:</strong> <span th:text="${brinde.nome}"></span></p>
+            <p><strong>Descrição:</strong> <span th:text="${brinde.descricao}"></span></p>
+
+            <!-- Botão voltar -->
+            <div class="voltar">
+                <a th:href="@{/}" class="btn">Voltar ao Menu Principal</a>
+            </div>
         </div>
     </div>
+
+    <script>
+        // Lista de nomes fictícios para simular a roleta
+        const nomesFake = ["Carlos", "Maria", "João", "Fernanda", "Paulo", "Ana", "Ricardo", "Juliana", "Daniel", "Patrícia"];
+        const textoRoleta = document.getElementById("textoRoleta");
+        const resultadoDiv = document.getElementById("resultado");
+
+        let i = 0;
+        const intervalo = setInterval(() => {
+            textoRoleta.textContent = nomesFake[i % nomesFake.length];
+            i++;
+        }, 100); // troca a cada 100ms
+
+        // Para a roleta após 3 segundos e mostra o resultado real
+        setTimeout(() => {
+            clearInterval(intervalo);
+            document.getElementById("roleta").style.display = "none";
+            resultadoDiv.style.display = "block";
+        }, 3000);
+    </script>
 </body>
 </html>
